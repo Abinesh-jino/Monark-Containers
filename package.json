@@ -1,0 +1,1 @@
+{"name":"monark-home","private":true,"version":"1.0.0","description":"Monark Final Home — HTML, CSS and JavaScript","scripts":{"start":"node server.mjs"}}

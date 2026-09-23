@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Meet Monark International LLC FZ, a UAE-based general trading business focused on container solutions.">
+    <meta name="theme-color" content="#08243d">
+    <title>About Us | Monark International</title>
+    <link rel="icon" href="assets/monark-symbol.svg" type="image/svg+xml">
+    <style>
+/* Shared design tokens and foundation */
+@font-face { font-family: Manrope; src: url('assets/manrope-400.ttf'); font-weight: 400; font-display: swap; }
+@font-face { font-family: Manrope; src: url('assets/manrope-500.ttf'); font-weight: 500; font-display: swap; }
+@font-face { font-family: Manrope; src: url('assets/manrope-600.ttf'); font-weight: 600; font-display: swap; }
+@font-face { font-family: Manrope; src: url('assets/manrope-700.ttf'); font-weight: 700; font-display: swap; }
+:root { --cream: #f6f5f0; --navy: #08243d; --muted: #626b71; --blue: #3155ff; --line: #d9dede; --panel: #eeede7; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body { margin: 0; color: var(--navy); background: var(--cream); font: 15px/1.6 Manrope, Arial, sans-serif; }
+h1, h2, h3, p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; color: inherit; }
+img { display: block; max-width: 100%; }
+button, a, input, select, textarea, summary { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+[hidden] { display: none !important; }
+.wrap { width: calc(100% - 128px); max-width: 1312px; margin-inline: auto; }
+.eyebrow { text-transform: uppercase; letter-spacing: 1.6px; font-size: 11px; line-height: 1.5; font-weight: 500; color: var(--muted); }
+.page-title { font-size: 48px; line-height: 1.13; letter-spacing: -1.4px; font-weight: 600; }
+.section-title { font-size: 38px; line-height: 1.18; font-weight: 600; letter-spacing: -1px; }
+.muted { color: var(--muted); }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 13px 22px; min-height: 48px; border: 1px solid transparent; background: var(--navy); color: white; font-size: 13px; line-height: 20px; font-weight: 500; transition: background .2s, transform .2s; }
+.button:hover { background: #174968; }
+.button.light { background: white; color: var(--navy); }
+.button.light:hover { background: #e9eef1; }
+.button.round { border-radius: 24px; }
+.button.blue { background: var(--blue); }
+.button span, .text-link span { display: inline-block; transition: transform .2s; }
+.button:hover span, .text-link:hover span { transform: translateX(4px); }
+.text-link { font-size: 13px; font-weight: 600; }
+.skip { position: fixed; top: -100px; left: 16px; z-index: 99; padding: 12px; background: white; }
+.skip:focus { top: 12px; }
+/* Site header and logo */
+.site-header { height: 96px; display: flex; align-items: center; justify-content: space-between; gap: 24px; position: relative; z-index: 10; }
+.brand { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.brand-symbol { width: 46px; height: 32px; object-fit: contain; }
+.brand-type { display: block; width: 146px; }
+.brand-type img { width: 146px; height: auto; }
+.brand-type small { display: block; text-align: center; font-size: 8px; line-height: 12px; letter-spacing: 3.5px; margin-top: 4px; }
+.main-nav { display: flex; align-items: center; gap: 34px; }
+.main-nav a { position: relative; white-space: nowrap; font-size: 12px; font-weight: 500; padding-block: 6px; }
+.main-nav a[aria-current=page]::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--blue); }
+.header-quote { min-width: 184px; }
+.menu-toggle { display: none; border: 0; padding: 12px 16px; background: white; }
+/* Shared footer */
+.site-footer { background: white; padding: 40px 0 20px; }
+.footer-grid { display: grid; grid-template-columns: 2.2fr .7fr 1.65fr 1fr; gap: 36px; min-height: 180px; padding-bottom: 20px; }
+.footer-grid h2 { font-size: 12px; font-weight: 600; margin: 0 0 18px; }
+.footer-grid p { font-size: 13px; color: #65717b; line-height: 24px; }
+.footer-brand p { margin-top: 24px; font-size: 12px; }
+.footer-nav { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; font-size: 13px; }
+.footer-grid address { font-style: normal; font-size: 14px; line-height: 29px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 18px; border-top: 1px solid #e1e3e3; padding-top: 14px; font-size: 11px; }
+.footer-bottom small, .footer-bottom button { font-size: 11px; }
+.footer-bottom button { border: 0; padding: 0; background: none; }
+/* Motion and shared dialog */
+.reveal { transition: opacity .6s ease, transform .6s ease; }
+.reveal.pending { opacity: 0; transform: translateY(20px); }
+.info-dialog { border: 1px solid var(--line); background: var(--cream); color: var(--navy); width: min(680px, calc(100% - 32px)); padding: 36px; max-height: 85vh; overflow-y: auto; }
+.info-dialog::backdrop { background: #08243d99; backdrop-filter: blur(4px); }
+.dialog-close { float: right; border: 0; background: none; font-size: 28px; line-height: 1; }
+.info-dialog h2 { font-size: 28px; margin: 12px 0 18px; }
+.info-dialog p { color: var(--muted); }
+.info-dialog .button { margin-top: 22px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 1199px) {
+  .wrap { width: calc(100% - 64px); }
+  .main-nav { gap: 22px; }
+  .site-header { gap: 18px; }
+  .brand-type, .brand-type img { width: 130px; }
+  .brand-symbol { width: 38px; }
+  .header-quote { min-width: 160px; font-size: 12px; }
+  .footer-grid { gap: 26px; }
+}
+@media (max-width: 980px) {
+  .site-header { height: 90px; }
+  .menu-toggle { display: block; margin-left: auto; }
+  .header-quote { display: none; }
+  .main-nav { display: none; position: absolute; top: 82px; right: 0; left: 0; padding: 24px; background: var(--cream); box-shadow: 0 12px 30px #08243d22; }
+  .main-nav.open { display: flex; flex-direction: column; align-items: stretch; gap: 12px; }
+  .main-nav a { font-size: 15px; }
+  .main-nav a[aria-current=page]::after { width: 36px; }
+  .footer-grid { grid-template-columns: 1.4fr 1fr; gap: 32px; }
+  .footer-bottom { flex-wrap: wrap; }
+}
+@media (max-width: 600px) {
+  .wrap { width: calc(100% - 40px); }
+  .page-title { font-size: 35px; letter-spacing: -.8px; }
+  .section-title { font-size: 30px; }
+  .brand-type, .brand-type img { width: 125px; }
+  .brand-symbol { width: 36px; }
+  .brand-type small { font-size: 7px; letter-spacing: 3px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+  .footer-brand, .footer-promise { grid-column: 1 / -1; }
+  .footer-grid address { font-size: 12px; line-height: 25px; }
+  .footer-bottom, .footer-bottom small, .footer-bottom button { font-size: 10px; }
+  .footer-promise p { max-width: 250px; }
+  .info-dialog { padding: 28px 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal.pending { opacity: 1; transform: none; }
+}
+
+.site-footer .footer-brand .brand { display: inline-flex; }
+
+/* Exact client-supplied Final Logo.svg, unchanged artwork and proportions. */
+.brand .brand-final { display: block; width: 230px; height: auto; max-width: 100%; object-fit: contain; }
+
+/* Fixed navigation: reserve its height and keep anchor targets visible. */
+:root { --header-height: 96px; }
+html { scroll-padding-top: calc(var(--header-height) + 24px); }
+body { padding-top: var(--header-height); }
+.site-header.wrap {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  width: 100%;
+  max-width: none;
+  height: var(--header-height);
+  margin: 0;
+  padding-inline: max(64px, calc((100% - 1312px) / 2));
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+}
+@media (max-width: 1200px) {
+  .site-header.wrap { padding-inline: 32px; }
+}
+@media (max-width: 980px) {
+  :root { --header-height: 90px; }
+  .site-header .main-nav { top: 100%; max-height: calc(100dvh - var(--header-height)); overflow-y: auto; }
+}
+@media (max-width: 600px) {
+  .site-header.wrap { padding-inline: 20px; }
+}
+
+/* Home begins behind the fixed navigation; other pages reserve header space. */
+body:has(.home-header) { padding-top: 0; }
+.site-header { transition: background-color 220ms ease, box-shadow 220ms ease, border-color 220ms ease; }
+.site-header.home-header:not(.is-scrolled):not(:has(.main-nav.open)) {
+  background: transparent;
+  border-bottom-color: transparent;
+}
+.site-header.is-scrolled { box-shadow: 0 3px 20px #08243d0c; }
+.site-header .header-quote { background: var(--blue); color: white; }
+@media (max-width: 600px) {
+  .brand .brand-final { width: 210px; }
+}
+
+/* Native navigation stays intact: short page fades, no artificial click delay. */
+@keyframes page-enter { from { opacity: 0; } to { opacity: 1; } }
+@keyframes page-leave { from { opacity: 1; } to { opacity: 0; } }
+@media (prefers-reduced-motion: no-preference) {
+  body > main, body > .hero { animation: page-enter 300ms ease-out both; }
+  @view-transition { navigation: auto; }
+  .site-header { view-transition-name: site-navigation; }
+  ::view-transition-old(root) { animation: page-leave 160ms ease-out both; }
+  ::view-transition-new(root) { animation: page-enter 220ms ease-out both; }
+  ::view-transition-group(site-navigation) { animation-duration: 220ms; }
+}
+
+
+/* ================================================================
+   ABOUT US — PAGE STYLES
+   ================================================================ */
+/* About page */
+.about-intro { padding-top: 47px; }
+.about-title-row { display: grid; grid-template-columns: 2.1fr 1fr; gap: 90px; align-items: start; margin-top: 28px; }
+.about-title-row > p { padding-top: 8px; color: var(--muted); font-size: 16px; line-height: 1.65; }
+.about-banner { position: relative; margin-top: 66px; border-radius: 18px; overflow: hidden; }
+.about-banner > img { height: 422px; width: 100%; object-fit: cover; }
+.about-caption { position: absolute; left: 28px; bottom: 28px; background: white; border-radius: 7px; padding: 14px 16px; font-size: 10px; font-weight: 700; letter-spacing: .6px; }
+.company-section { padding-block: 64px 80px; }
+.company-story { display: grid; grid-template-columns: 1.4fr 1fr; gap: 110px; margin-top: 32px; }
+.company-story h2 { font-size: 40px; line-height: 1.22; font-weight: 600; letter-spacing: -.8px; }
+.company-story p { color: var(--muted); font-size: 16px; line-height: 1.65; }
+.company-story p+p { margin-top: 22px; font-size: 15px; }
+.capability-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 25px; margin-top: 55px; }
+.capability-item { border-top: 1px solid #dfe7f0; padding-top: 18px; }
+.capability-item h3 { font-size: 25px; font-weight: 600; }
+.capability-item p { margin-top: 17px; color: var(--muted); font-size: 13px; }
+.values-section { background: #eeede7; padding-block: 64px; }
+.values-title-row { display: flex; justify-content: space-between; gap: 40px; align-items: center; margin-top: 27px; }
+.values-title-row > p { max-width: 378px; color: var(--muted); font-size: 15px; }
+.values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+.value-card { background: white; padding: 26px; border-radius: 14px; min-height: 218px; }
+.value-icon { display: block; color: var(--blue); font-size: 28px; line-height: 36px; margin-bottom: 23px; }
+.value-card h3 { font-size: 23px; line-height: 1.2; font-weight: 600; }
+.value-card p { color: var(--muted); font-size: 14px; line-height: 1.6; margin-top: 16px; }
+.about-contact { padding-block: 70px 66px; }
+.about-contact-panel { border-radius: 18px; background: #0b2038; padding: 35px 36px; color: white; min-height: 238px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+.about-contact-panel .eyebrow { color: #9db7ff; }
+.about-contact-panel h2 { font-size: 36px; line-height: 1.2; margin-top: 28px; }
+.about-contact-panel p:last-child { font-size: 15px; color: #c1cfde; margin-top: 22px; }
+.about-contact-panel .button { flex-shrink: 0; border-radius: 7px; }
+@media(max-width:900px) {
+ .about-title-row, .company-story { grid-template-columns: 1fr; gap: 25px; }
+ .about-title-row > p { max-width: 540px; }
+ .about-banner { margin-top: 38px; }
+ .about-banner > img { height: 330px; }
+ .values-title-row { display: block; }
+ .values-title-row > p { margin-top: 25px; }
+ .values-grid { gap: 16px; }
+ .value-card { padding: 22px; }
+ .value-card h3 { font-size: 20px; }
+ .about-contact-panel { align-items: flex-start; flex-direction: column; }
+}
+@media(max-width:600px) {
+ .about-intro { padding-top: 35px; }
+ .about-banner > img { height: 250px; }
+ .about-caption { left: 16px; bottom: 16px; padding: 10px; font-size: 8px; }
+ .company-story h2 { font-size: 32px; }
+ .capability-row, .values-grid { grid-template-columns: 1fr; }
+ .capability-row { gap: 26px; margin-top: 35px; }
+ .capability-item p { margin-top: 7px; }
+ .about-contact-panel { padding: 28px; }
+ .about-contact-panel h2 { font-size: 29px; }
+ .about-contact { padding-block: 45px; }
+}
+
+  </style>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="brand" href="index.html" aria-label="Monark International home"><img class="brand-final" src="assets/final-logo.svg" alt="Monark International" width="230" height="28.414"></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-navigation">Menu <span aria-hidden="true">☰</span></button>
+      <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog / Resources</a>
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <a class="button blue header-quote" href="contact.html#enquiry">Request a Quote <span aria-hidden="true">→</span></a>
+    </header>
+    <main id="main">
+      <!-- Introduction and brand imagery -->
+      <section class="about-intro wrap">
+        <p class="eyebrow">
+          About Monark
+        </p>
+        <div class="about-title-row">
+          <h1 class="page-title">
+            Built around business.<br>Focused on your needs.
+          </h1>
+          <p>
+            Monark International LLC FZ is a UAE-based general trading business focused on cargo container trading and rentals.
+          </p>
+        </div>
+        <div class="about-banner">
+          <img src="assets/about.webp" alt="Container port operations in warm evening light" width="1312" height="422" fetchpriority="high"><span class="about-caption">CONTAINER SOLUTIONS. UAE FOCUSED.</span>
+        </div>
+      </section>
+      <!-- Company overview -->
+      <section class="company-section wrap">
+        <p class="eyebrow">
+          Who we are
+        </p>
+        <div class="company-story">
+          <h2>
+            A practical approach<br>to every requirement.
+          </h2>
+          <div>
+            <p>
+              Every business has different priorities. We take the time to understand yours and help you find a container solution that makes sense.
+            </p>
+            <p>
+              Our focus is straightforward: pre-owned container supply, short- and long-term rentals, and transportation arrangements across the UAE.
+            </p>
+          </div>
+        </div>
+        <div class="capability-row">
+          <div class="capability-item reveal">
+            <h3>
+              Trade
+            </h3>
+            <p>
+              Pre-owned container supply
+            </p>
+          </div>
+          <div class="capability-item reveal">
+            <h3>
+              Rent
+            </h3>
+            <p>
+              Short- and long-term options
+            </p>
+          </div>
+          <div class="capability-item reveal">
+            <h3>
+              Move
+            </h3>
+            <p>
+              Transportation across the UAE
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Our approach -->
+      <section class="values-section">
+        <div class="wrap">
+          <p class="eyebrow">
+            How we work
+          </p>
+          <div class="values-title-row">
+            <h2 class="section-title">
+              Clear choices.<br>Considered solutions.
+            </h2>
+            <p>
+              A straightforward way of working,<br>from the first question to the next step.
+            </p>
+          </div>
+          <div class="values-grid">
+            <article class="value-card reveal">
+              <span class="value-icon" aria-hidden="true">▱</span>
+              <h3>
+                Understand first.
+              </h3>
+              <p>
+                Your intended use, timeframe, and location shape the conversation. We begin with what matters to your business.
+              </p>
+            </article>
+            <article class="value-card reveal">
+              <span class="value-icon" aria-hidden="true">▥</span>
+              <h3>
+                Make options clear.
+              </h3>
+              <p>
+                Discuss availability, container condition, and purchase or rental terms before deciding what works for you.
+              </p>
+            </article>
+            <article class="value-card reveal">
+              <span class="value-icon" aria-hidden="true">⇄</span>
+              <h3>
+                Coordinate the details.
+              </h3>
+              <p>
+                Bring the container requirements and transportation arrangements together, with clear next steps.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Contact invitation -->
+      <section class="about-contact wrap">
+        <div class="about-contact-panel reveal">
+          <div>
+            <p class="eyebrow">
+              Let’s talk containers
+            </p>
+            <h2>
+              Tell us what you have in mind.
+            </h2>
+            <p>
+              We’ll help you explore the options for your business.
+            </p>
+          </div>
+          <a class="button light" href="contact.html#enquiry">Contact our team <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Monark International home"><img class="brand-final" src="assets/final-logo.svg" alt="Monark International" width="230" height="28.414"></a>
+          <p>
+            Container trading | Leasing | Storage | Transportation.
+          </p>
+        </div>
+        <div>
+          <h2>
+            Quick Links
+          </h2>
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="blog.html">Blog / Resources</a>
+            <a href="contact.html">Contact</a>
+            <a href="faq.html">FAQ</a>
+          </nav>
+        </div>
+        <div>
+          <h2>
+            Our Location
+          </h2>
+          <address>
+            Dubai, United Arab Emirates<br><a href="mailto:Contactus@Monark.ae">Contactus@Monark.ae</a><br><a href="tel:+971552052260">+971 55 205 2260</a>
+          </address>
+        </div>
+        <div class="footer-promise">
+          <h2>
+            Let’s build Together
+          </h2>
+          <p>
+            Reliable container solutions for a stronger tomorrow
+          </p>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <small>© Monark International LLC FZ</small>
+        <div>
+          <button data-policy="privacy">Privacy Policy</button> <span aria-hidden="true">|</span> <button data-policy="terms">Terms of Service</button>
+        </div>
+        <span>UAE | GCC | GLOBAL</span>
+      </div>
+    </footer>
+    <dialog class="info-dialog" id="policy-dialog" aria-labelledby="policy-title">
+      <button class="dialog-close" aria-label="Close dialog">×</button>
+      <h2 id="policy-title">
+      </h2>
+      <p id="policy-copy">
+      </p>
+    </dialog>
+    <script>
+// Shared navigation and progressive enhancement.
+(() => {
+  const header = document.querySelector('.site-header');
+  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 12);
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  window.addEventListener('pageshow', updateHeader);
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.main-nav');
+  const closeMenu = () => {
+    toggle?.setAttribute('aria-expanded', 'false');
+    menu?.classList.remove('open');
+  };
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', String(open));
+    menu.classList.toggle('open', open);
+  });
+  menu?.addEventListener('click', event => {
+    if (event.target.closest('a')) closeMenu();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu?.classList.contains('open')) {
+      closeMenu();
+      toggle.focus();
+    }
+  });
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.site-header')) closeMenu();
+  });
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('pending');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.07 });
+    document.querySelectorAll('.reveal').forEach(element => {
+      if (element.getBoundingClientRect().top > innerHeight) {
+        element.classList.add('pending');
+        observer.observe(element);
+      }
+    });
+  }
+  const dialog = document.querySelector('#policy-dialog');
+  let opener;
+  document.querySelectorAll('[data-policy]').forEach(button => {
+    button.addEventListener('click', () => {
+      opener = button;
+      document.querySelector('#policy-title').textContent = button.textContent;
+      document.querySelector('#policy-copy').textContent = button.dataset.policy === 'privacy'
+        ? 'The final company privacy policy is awaiting confirmation. This preview has no analytics or enquiry database. Contact details entered in the enquiry form remain in this page until you choose to open an email draft or copy the enquiry.'
+        : 'The final company terms are awaiting confirmation. Contact Monark to agree availability, pricing, rental conditions and transportation arrangements for your requirement.';
+      dialog.showModal();
+    });
+  });
+  dialog?.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+  dialog?.addEventListener('close', () => opener?.focus());
+})();
+
+
+// About Us page behaviour.
+// About uses standard links; shared code provides navigation and scroll reveals.
+
+</script>
+  </body>
+</html>

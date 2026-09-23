@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Start with your cargo, access and intended use before choosing a container type.">
+    <meta name="theme-color" content="#08243d">
+    <title>Find the format that fits your requirement. | Monark International</title>
+    <link rel="icon" href="assets/monark-symbol.svg" type="image/svg+xml">
+    <style>
+/* Shared design tokens and foundation */
+@font-face { font-family: Manrope; src: url('assets/manrope-400.ttf'); font-weight: 400; font-display: swap; }
+@font-face { font-family: Manrope; src: url('assets/manrope-500.ttf'); font-weight: 500; font-display: swap; }
+@font-face { font-family: Manrope; src: url('assets/manrope-600.ttf'); font-weight: 600; font-display: swap; }
+@font-face { font-family: Manrope; src: url('assets/manrope-700.ttf'); font-weight: 700; font-display: swap; }
+:root { --cream: #f6f5f0; --navy: #08243d; --muted: #626b71; --blue: #3155ff; --line: #d9dede; --panel: #eeede7; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body { margin: 0; color: var(--navy); background: var(--cream); font: 15px/1.6 Manrope, Arial, sans-serif; }
+h1, h2, h3, p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; color: inherit; }
+img { display: block; max-width: 100%; }
+button, a, input, select, textarea, summary { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+[hidden] { display: none !important; }
+.wrap { width: calc(100% - 128px); max-width: 1312px; margin-inline: auto; }
+.eyebrow { text-transform: uppercase; letter-spacing: 1.6px; font-size: 11px; line-height: 1.5; font-weight: 500; color: var(--muted); }
+.page-title { font-size: 48px; line-height: 1.13; letter-spacing: -1.4px; font-weight: 600; }
+.section-title { font-size: 38px; line-height: 1.18; font-weight: 600; letter-spacing: -1px; }
+.muted { color: var(--muted); }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 13px 22px; min-height: 48px; border: 1px solid transparent; background: var(--navy); color: white; font-size: 13px; line-height: 20px; font-weight: 500; transition: background .2s, transform .2s; }
+.button:hover { background: #174968; }
+.button.light { background: white; color: var(--navy); }
+.button.light:hover { background: #e9eef1; }
+.button.round { border-radius: 24px; }
+.button.blue { background: var(--blue); }
+.button span, .text-link span { display: inline-block; transition: transform .2s; }
+.button:hover span, .text-link:hover span { transform: translateX(4px); }
+.text-link { font-size: 13px; font-weight: 600; }
+.skip { position: fixed; top: -100px; left: 16px; z-index: 99; padding: 12px; background: white; }
+.skip:focus { top: 12px; }
+/* Site header and logo */
+.site-header { height: 96px; display: flex; align-items: center; justify-content: space-between; gap: 24px; position: relative; z-index: 10; }
+.brand { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.brand-symbol { width: 46px; height: 32px; object-fit: contain; }
+.brand-type { display: block; width: 146px; }
+.brand-type img { width: 146px; height: auto; }
+.brand-type small { display: block; text-align: center; font-size: 8px; line-height: 12px; letter-spacing: 3.5px; margin-top: 4px; }
+.main-nav { display: flex; align-items: center; gap: 34px; }
+.main-nav a { position: relative; white-space: nowrap; font-size: 12px; font-weight: 500; padding-block: 6px; }
+.main-nav a[aria-current=page]::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--blue); }
+.header-quote { min-width: 184px; }
+.menu-toggle { display: none; border: 0; padding: 12px 16px; background: white; }
+/* Shared footer */
+.site-footer { background: white; padding: 40px 0 20px; }
+.footer-grid { display: grid; grid-template-columns: 2.2fr .7fr 1.65fr 1fr; gap: 36px; min-height: 180px; padding-bottom: 20px; }
+.footer-grid h2 { font-size: 12px; font-weight: 600; margin: 0 0 18px; }
+.footer-grid p { font-size: 13px; color: #65717b; line-height: 24px; }
+.footer-brand p { margin-top: 24px; font-size: 12px; }
+.footer-nav { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; font-size: 13px; }
+.footer-grid address { font-style: normal; font-size: 14px; line-height: 29px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 18px; border-top: 1px solid #e1e3e3; padding-top: 14px; font-size: 11px; }
+.footer-bottom small, .footer-bottom button { font-size: 11px; }
+.footer-bottom button { border: 0; padding: 0; background: none; }
+/* Motion and shared dialog */
+.reveal { transition: opacity .6s ease, transform .6s ease; }
+.reveal.pending { opacity: 0; transform: translateY(20px); }
+.info-dialog { border: 1px solid var(--line); background: var(--cream); color: var(--navy); width: min(680px, calc(100% - 32px)); padding: 36px; max-height: 85vh; overflow-y: auto; }
+.info-dialog::backdrop { background: #08243d99; backdrop-filter: blur(4px); }
+.dialog-close { float: right; border: 0; background: none; font-size: 28px; line-height: 1; }
+.info-dialog h2 { font-size: 28px; margin: 12px 0 18px; }
+.info-dialog p { color: var(--muted); }
+.info-dialog .button { margin-top: 22px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 1199px) {
+  .wrap { width: calc(100% - 64px); }
+  .main-nav { gap: 22px; }
+  .site-header { gap: 18px; }
+  .brand-type, .brand-type img { width: 130px; }
+  .brand-symbol { width: 38px; }
+  .header-quote { min-width: 160px; font-size: 12px; }
+  .footer-grid { gap: 26px; }
+}
+@media (max-width: 980px) {
+  .site-header { height: 90px; }
+  .menu-toggle { display: block; margin-left: auto; }
+  .header-quote { display: none; }
+  .main-nav { display: none; position: absolute; top: 82px; right: 0; left: 0; padding: 24px; background: var(--cream); box-shadow: 0 12px 30px #08243d22; }
+  .main-nav.open { display: flex; flex-direction: column; align-items: stretch; gap: 12px; }
+  .main-nav a { font-size: 15px; }
+  .main-nav a[aria-current=page]::after { width: 36px; }
+  .footer-grid { grid-template-columns: 1.4fr 1fr; gap: 32px; }
+  .footer-bottom { flex-wrap: wrap; }
+}
+@media (max-width: 600px) {
+  .wrap { width: calc(100% - 40px); }
+  .page-title { font-size: 35px; letter-spacing: -.8px; }
+  .section-title { font-size: 30px; }
+  .brand-type, .brand-type img { width: 125px; }
+  .brand-symbol { width: 36px; }
+  .brand-type small { font-size: 7px; letter-spacing: 3px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+  .footer-brand, .footer-promise { grid-column: 1 / -1; }
+  .footer-grid address { font-size: 12px; line-height: 25px; }
+  .footer-bottom, .footer-bottom small, .footer-bottom button { font-size: 10px; }
+  .footer-promise p { max-width: 250px; }
+  .info-dialog { padding: 28px 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal.pending { opacity: 1; transform: none; }
+}
+
+.site-footer .footer-brand .brand { display: inline-flex; }
+
+/* Exact client-supplied Final Logo.svg, unchanged artwork and proportions. */
+.brand .brand-final { display: block; width: 230px; height: auto; max-width: 100%; object-fit: contain; }
+
+/* Fixed navigation: reserve its height and keep anchor targets visible. */
+:root { --header-height: 96px; }
+html { scroll-padding-top: calc(var(--header-height) + 24px); }
+body { padding-top: var(--header-height); }
+.site-header.wrap {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  width: 100%;
+  max-width: none;
+  height: var(--header-height);
+  margin: 0;
+  padding-inline: max(64px, calc((100% - 1312px) / 2));
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+}
+@media (max-width: 1200px) {
+  .site-header.wrap { padding-inline: 32px; }
+}
+@media (max-width: 980px) {
+  :root { --header-height: 90px; }
+  .site-header .main-nav { top: 100%; max-height: calc(100dvh - var(--header-height)); overflow-y: auto; }
+}
+@media (max-width: 600px) {
+  .site-header.wrap { padding-inline: 20px; }
+}
+
+/* Home begins behind the fixed navigation; other pages reserve header space. */
+body:has(.home-header) { padding-top: 0; }
+.site-header { transition: background-color 220ms ease, box-shadow 220ms ease, border-color 220ms ease; }
+.site-header.home-header:not(.is-scrolled):not(:has(.main-nav.open)) {
+  background: transparent;
+  border-bottom-color: transparent;
+}
+.site-header.is-scrolled { box-shadow: 0 3px 20px #08243d0c; }
+.site-header .header-quote { background: var(--blue); color: white; }
+@media (max-width: 600px) {
+  .brand .brand-final { width: 210px; }
+}
+
+/* Native navigation stays intact: short page fades, no artificial click delay. */
+@keyframes page-enter { from { opacity: 0; } to { opacity: 1; } }
+@keyframes page-leave { from { opacity: 1; } to { opacity: 0; } }
+@media (prefers-reduced-motion: no-preference) {
+  body > main, body > .hero { animation: page-enter 300ms ease-out both; }
+  @view-transition { navigation: auto; }
+  .site-header { view-transition-name: site-navigation; }
+  ::view-transition-old(root) { animation: page-leave 160ms ease-out both; }
+  ::view-transition-new(root) { animation: page-enter 220ms ease-out both; }
+  ::view-transition-group(site-navigation) { animation-duration: 220ms; }
+}
+
+
+/* ================================================================
+   FIND THE FORMAT THAT FITS YOUR REQUIREMENT. — PAGE STYLES
+   ================================================================ */
+/* Blog listing and article pages */
+.blog-heading { padding-top: 43px; }
+.blog-title-row { display: flex; justify-content: space-between; gap: 55px; align-items: center; margin-top: 25px; }
+.blog-title-row > p { font-size: 15px; color: var(--muted); max-width: 376px; line-height: 1.6; }
+.blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 41px; }
+.blog-card { background: white; border: 1px solid #e9e8e2; min-height: 440px; display: flex; flex-direction: column; overflow: hidden; }
+.blog-card .card-image { height: 210px; overflow: hidden; }
+.blog-card img { height: 100%; width: 100%; object-fit: cover; transition: transform .6s; }
+.blog-card:hover img { transform: scale(1.035); }
+.blog-card-body { padding: 20px 23px 23px; display: flex; flex-direction: column; flex: 1; }
+.blog-card .eyebrow { font-size: 10px; letter-spacing: 1.6px; }
+.blog-card h2 { font-size: 23px; font-weight: 600; line-height: 1.22; margin-top: 15px; letter-spacing: -.3px; }
+.blog-card-body > p:not(.eyebrow) { font-size: 13px; color: var(--muted); line-height: 1.5; margin-top: 12px; }
+.blog-card .text-link { margin-top: auto; padding-top: 22px; display: inline-flex; gap: 10px; }
+.blog-card.featured { grid-column: span 2; position: relative; isolation: isolate; border: 0; min-height: 440px; }
+.featured > img { position: absolute; inset: 0; z-index: -2; }
+.featured::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg,#03121eed, #03121e55 50%, transparent); }
+.featured .blog-card-body { justify-content: flex-end; padding: 32px; color: white; }
+.featured .eyebrow { color: #dce3e8; }
+.featured h2 { font-size: 34px; line-height: 1.15; }
+.featured .text-link { margin-top: 22px; padding: 0; }
+.blog-contact-strip { background: var(--panel); padding: 25px 24px; display: flex; justify-content: space-between; align-items: center; gap: 30px; margin-block: 66px 56px; min-height: 104px; }
+.blog-contact-strip h2 { font-size: 23px; line-height: 1.3; font-weight: 500; }
+.blog-contact-strip p { color: var(--muted); font-size: 14px; margin-top: 10px; }
+.blog-contact-strip .button { flex-shrink: 0; }
+.article-top { padding-top: 25px; }
+.back-link { display: inline-flex; gap: 10px; font-size: 13px; font-weight: 500; }
+.article-header { max-width: 960px; margin: 44px auto 36px; }
+.article-header h1 { margin-top: 25px; }
+.article-lead { color: var(--muted); font-size: 18px; line-height: 1.7; margin-top: 24px; }
+.article-hero { width: 100%; height: 400px; object-fit: cover; }
+.article-body-layout { display: grid; grid-template-columns: 220px minmax(0,802px); gap: 66px; margin-top: 52px; padding-bottom: 80px; }
+.article-aside p:last-child { color: var(--muted); font-size: 14px; margin-top: 25px; max-width: 150px; }
+.article-content section { margin-bottom: 34px; }
+.article-content h2 { font-size: 25px; line-height: 1.25; font-weight: 600; margin-bottom: 15px; }
+.article-content p { font-size: 16px; line-height: 1.8; color: var(--muted); }
+.article-actions { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-top: 28px; border-top: 1px solid #dddcd5; }
+@media(max-width:1000px) {
+ .blog-title-row { align-items: flex-start; flex-direction: column; gap: 25px; }
+ .blog-title-row > p { max-width: 600px; }
+ .blog-card h2 { font-size: 21px; }
+ .blog-card-body { padding: 20px; }
+ .article-header { max-width: 850px; }
+ .article-body-layout { grid-template-columns: 150px minmax(0,1fr); gap: 35px; }
+}
+@media(max-width:740px) {
+ .blog-grid { grid-template-columns: repeat(2,1fr); }
+ .blog-card.featured { grid-column: 1 / -1; min-height: 380px; }
+ .blog-card { min-height: 430px; }
+ .blog-card .card-image { height: 185px; }
+ .featured h2 { font-size: 30px; }
+ .blog-contact-strip { flex-direction: column; align-items: flex-start; }
+ .article-hero { height: 280px; }
+ .article-body-layout { display: block; }
+ .article-aside { margin-bottom: 35px; }
+ .article-aside p:last-child { max-width: none; margin-top: 8px; }
+ .article-actions { flex-wrap: wrap; }
+}
+@media(max-width:500px) {
+ .blog-grid { grid-template-columns: 1fr; }
+ .blog-card { min-height: 425px; }
+ .blog-card .card-image { height: 220px; }
+ .featured .blog-card-body { padding: 25px; }
+ .featured h2 { font-size: 29px; }
+ .article-lead { font-size: 16px; }
+ .article-header { margin-top: 30px; }
+ .article-hero { height: 235px; }
+ .article-content h2 { font-size: 23px; }
+ .article-content p { font-size: 15px; }
+ .blog-contact-strip h2 { font-size: 21px; }
+}
+
+  </style>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="brand" href="index.html" aria-label="Monark International home"><img class="brand-final" src="assets/final-logo.svg" alt="Monark International" width="230" height="28.414"></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-navigation">Menu <span aria-hidden="true">☰</span></button>
+      <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html" aria-current="page">Blog / Resources</a>
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <a class="button blue header-quote" href="contact.html#enquiry">Request a Quote <span aria-hidden="true">→</span></a>
+    </header>
+    <main id="main">
+      <article class="article-top wrap">
+        <a class="back-link" href="blog.html">← Back to Blog</a>
+        <header class="article-header">
+          <p class="eyebrow">
+            CONTAINER FORMATS / 3 min read
+          </p>
+          <h1 class="page-title">
+            Find the format that fits your requirement.
+          </h1>
+          <p class="article-lead">
+            Standard Dry, High Cube, Reefer, Open Top and Flat Rack containers appear across Monark’s product range. Choosing between them starts with understanding the requirement, then confirming the details of the actual unit offered.
+          </p>
+        </header>
+        <img class="article-hero" src="assets/blog-2.webp" alt="container formats editorial photograph" width="1312" height="400">
+        <div class="article-body-layout">
+          <aside class="article-aside">
+            <p class="eyebrow">
+              Monark Resources
+            </p>
+            <p>
+              Practical guidance for your next move.
+            </p>
+          </aside>
+          <div class="article-content">
+            <section>
+              <h2>
+                Describe the contents and handling
+              </h2>
+              <p>
+                Share what you intend to store or move, how it will be loaded and any handling requirements already identified by your team. Photographs or a simple written brief can help explain the application without relying on a container name alone.
+              </p>
+            </section>
+            <section>
+              <h2>
+                Confirm the dimensions that matter
+              </h2>
+              <p>
+                A size label is a starting point for a conversation. Ask for the relevant dimensions and specifications of the proposed equipment, and have your team check them against the requirement. Do not assume every available unit has identical specifications.
+              </p>
+            </section>
+            <section>
+              <h2>
+                Discuss special requirements early
+              </h2>
+              <p>
+                If temperature management, overhead access or oversized cargo is part of your brief, raise it at the start. The team can discuss the relevant container category and the information needed to assess suitability. Availability should be confirmed for your location and timeframe.
+              </p>
+            </section>
+            <section>
+              <h2>
+                Bring the choice back to the application
+              </h2>
+              <p>
+                Compare the proposed type, condition and arrangement against your original brief. Monark can help discuss options, while any application-specific technical checks should be completed by the appropriate people before the equipment is put into use.
+              </p>
+            </section>
+            <div class="article-actions">
+              <a class="back-link" href="blog.html">← Back to Blog</a><a class="button" href="contact.html#enquiry">Discuss your requirement <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Monark International home"><img class="brand-final" src="assets/final-logo.svg" alt="Monark International" width="230" height="28.414"></a>
+          <p>
+            Container trading | Leasing | Storage | Transportation.
+          </p>
+        </div>
+        <div>
+          <h2>
+            Quick Links
+          </h2>
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="blog.html">Blog / Resources</a>
+            <a href="contact.html">Contact</a>
+            <a href="faq.html">FAQ</a>
+          </nav>
+        </div>
+        <div>
+          <h2>
+            Our Location
+          </h2>
+          <address>
+            Dubai, United Arab Emirates<br><a href="mailto:Contactus@Monark.ae">Contactus@Monark.ae</a><br><a href="tel:+971552052260">+971 55 205 2260</a>
+          </address>
+        </div>
+        <div class="footer-promise">
+          <h2>
+            Let’s build Together
+          </h2>
+          <p>
+            Reliable container solutions for a stronger tomorrow
+          </p>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <small>© Monark International LLC FZ</small>
+        <div>
+          <button data-policy="privacy">Privacy Policy</button> <span aria-hidden="true">|</span> <button data-policy="terms">Terms of Service</button>
+        </div>
+        <span>UAE | GCC | GLOBAL</span>
+      </div>
+    </footer>
+    <dialog class="info-dialog" id="policy-dialog" aria-labelledby="policy-title">
+      <button class="dialog-close" aria-label="Close dialog">×</button>
+      <h2 id="policy-title">
+      </h2>
+      <p id="policy-copy">
+      </p>
+    </dialog>
+    <script>
+// Shared navigation and progressive enhancement.
+(() => {
+  const header = document.querySelector('.site-header');
+  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 12);
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  window.addEventListener('pageshow', updateHeader);
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.main-nav');
+  const closeMenu = () => {
+    toggle?.setAttribute('aria-expanded', 'false');
+    menu?.classList.remove('open');
+  };
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', String(open));
+    menu.classList.toggle('open', open);
+  });
+  menu?.addEventListener('click', event => {
+    if (event.target.closest('a')) closeMenu();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu?.classList.contains('open')) {
+      closeMenu();
+      toggle.focus();
+    }
+  });
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.site-header')) closeMenu();
+  });
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('pending');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.07 });
+    document.querySelectorAll('.reveal').forEach(element => {
+      if (element.getBoundingClientRect().top > innerHeight) {
+        element.classList.add('pending');
+        observer.observe(element);
+      }
+    });
+  }
+  const dialog = document.querySelector('#policy-dialog');
+  let opener;
+  document.querySelectorAll('[data-policy]').forEach(button => {
+    button.addEventListener('click', () => {
+      opener = button;
+      document.querySelector('#policy-title').textContent = button.textContent;
+      document.querySelector('#policy-copy').textContent = button.dataset.policy === 'privacy'
+        ? 'The final company privacy policy is awaiting confirmation. This preview has no analytics or enquiry database. Contact details entered in the enquiry form remain in this page until you choose to open an email draft or copy the enquiry.'
+        : 'The final company terms are awaiting confirmation. Contact Monark to agree availability, pricing, rental conditions and transportation arrangements for your requirement.';
+      dialog.showModal();
+    });
+  });
+  dialog?.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+  dialog?.addEventListener('close', () => opener?.focus());
+})();
+
+
+// Find the format that fits your requirement. page behaviour.
+// Article links are standard HTML navigation; shared code handles the menu.
+
+</script>
+  </body>
+</html>

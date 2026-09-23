@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Speak to Monark about container sales, rentals, sourcing and transportation across the UAE.">
+    <meta name="theme-color" content="#08243d">
+    <title>Contact Us | Monark International</title>
+    <link rel="icon" href="assets/monark-symbol.svg" type="image/svg+xml">
+    <style>
+/* Shared design tokens and foundation */
+@font-face { font-family: Manrope; src: url('assets/manrope-400.ttf'); font-weight: 400; font-display: swap; }
+@font-face { font-family: Manrope; src: url('assets/manrope-500.ttf'); font-weight: 500; font-display: swap; }
+@font-face { font-family: Manrope; src: url('assets/manrope-600.ttf'); font-weight: 600; font-display: swap; }
+@font-face { font-family: Manrope; src: url('assets/manrope-700.ttf'); font-weight: 700; font-display: swap; }
+:root { --cream: #f6f5f0; --navy: #08243d; --muted: #626b71; --blue: #3155ff; --line: #d9dede; --panel: #eeede7; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body { margin: 0; color: var(--navy); background: var(--cream); font: 15px/1.6 Manrope, Arial, sans-serif; }
+h1, h2, h3, p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; color: inherit; }
+img { display: block; max-width: 100%; }
+button, a, input, select, textarea, summary { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+[hidden] { display: none !important; }
+.wrap { width: calc(100% - 128px); max-width: 1312px; margin-inline: auto; }
+.eyebrow { text-transform: uppercase; letter-spacing: 1.6px; font-size: 11px; line-height: 1.5; font-weight: 500; color: var(--muted); }
+.page-title { font-size: 48px; line-height: 1.13; letter-spacing: -1.4px; font-weight: 600; }
+.section-title { font-size: 38px; line-height: 1.18; font-weight: 600; letter-spacing: -1px; }
+.muted { color: var(--muted); }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 13px 22px; min-height: 48px; border: 1px solid transparent; background: var(--navy); color: white; font-size: 13px; line-height: 20px; font-weight: 500; transition: background .2s, transform .2s; }
+.button:hover { background: #174968; }
+.button.light { background: white; color: var(--navy); }
+.button.light:hover { background: #e9eef1; }
+.button.round { border-radius: 24px; }
+.button.blue { background: var(--blue); }
+.button span, .text-link span { display: inline-block; transition: transform .2s; }
+.button:hover span, .text-link:hover span { transform: translateX(4px); }
+.text-link { font-size: 13px; font-weight: 600; }
+.skip { position: fixed; top: -100px; left: 16px; z-index: 99; padding: 12px; background: white; }
+.skip:focus { top: 12px; }
+/* Site header and logo */
+.site-header { height: 96px; display: flex; align-items: center; justify-content: space-between; gap: 24px; position: relative; z-index: 10; }
+.brand { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.brand-symbol { width: 46px; height: 32px; object-fit: contain; }
+.brand-type { display: block; width: 146px; }
+.brand-type img { width: 146px; height: auto; }
+.brand-type small { display: block; text-align: center; font-size: 8px; line-height: 12px; letter-spacing: 3.5px; margin-top: 4px; }
+.main-nav { display: flex; align-items: center; gap: 34px; }
+.main-nav a { position: relative; white-space: nowrap; font-size: 12px; font-weight: 500; padding-block: 6px; }
+.main-nav a[aria-current=page]::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--blue); }
+.header-quote { min-width: 184px; }
+.menu-toggle { display: none; border: 0; padding: 12px 16px; background: white; }
+/* Shared footer */
+.site-footer { background: white; padding: 40px 0 20px; }
+.footer-grid { display: grid; grid-template-columns: 2.2fr .7fr 1.65fr 1fr; gap: 36px; min-height: 180px; padding-bottom: 20px; }
+.footer-grid h2 { font-size: 12px; font-weight: 600; margin: 0 0 18px; }
+.footer-grid p { font-size: 13px; color: #65717b; line-height: 24px; }
+.footer-brand p { margin-top: 24px; font-size: 12px; }
+.footer-nav { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; font-size: 13px; }
+.footer-grid address { font-style: normal; font-size: 14px; line-height: 29px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 18px; border-top: 1px solid #e1e3e3; padding-top: 14px; font-size: 11px; }
+.footer-bottom small, .footer-bottom button { font-size: 11px; }
+.footer-bottom button { border: 0; padding: 0; background: none; }
+/* Motion and shared dialog */
+.reveal { transition: opacity .6s ease, transform .6s ease; }
+.reveal.pending { opacity: 0; transform: translateY(20px); }
+.info-dialog { border: 1px solid var(--line); background: var(--cream); color: var(--navy); width: min(680px, calc(100% - 32px)); padding: 36px; max-height: 85vh; overflow-y: auto; }
+.info-dialog::backdrop { background: #08243d99; backdrop-filter: blur(4px); }
+.dialog-close { float: right; border: 0; background: none; font-size: 28px; line-height: 1; }
+.info-dialog h2 { font-size: 28px; margin: 12px 0 18px; }
+.info-dialog p { color: var(--muted); }
+.info-dialog .button { margin-top: 22px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 1199px) {
+  .wrap { width: calc(100% - 64px); }
+  .main-nav { gap: 22px; }
+  .site-header { gap: 18px; }
+  .brand-type, .brand-type img { width: 130px; }
+  .brand-symbol { width: 38px; }
+  .header-quote { min-width: 160px; font-size: 12px; }
+  .footer-grid { gap: 26px; }
+}
+@media (max-width: 980px) {
+  .site-header { height: 90px; }
+  .menu-toggle { display: block; margin-left: auto; }
+  .header-quote { display: none; }
+  .main-nav { display: none; position: absolute; top: 82px; right: 0; left: 0; padding: 24px; background: var(--cream); box-shadow: 0 12px 30px #08243d22; }
+  .main-nav.open { display: flex; flex-direction: column; align-items: stretch; gap: 12px; }
+  .main-nav a { font-size: 15px; }
+  .main-nav a[aria-current=page]::after { width: 36px; }
+  .footer-grid { grid-template-columns: 1.4fr 1fr; gap: 32px; }
+  .footer-bottom { flex-wrap: wrap; }
+}
+@media (max-width: 600px) {
+  .wrap { width: calc(100% - 40px); }
+  .page-title { font-size: 35px; letter-spacing: -.8px; }
+  .section-title { font-size: 30px; }
+  .brand-type, .brand-type img { width: 125px; }
+  .brand-symbol { width: 36px; }
+  .brand-type small { font-size: 7px; letter-spacing: 3px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+  .footer-brand, .footer-promise { grid-column: 1 / -1; }
+  .footer-grid address { font-size: 12px; line-height: 25px; }
+  .footer-bottom, .footer-bottom small, .footer-bottom button { font-size: 10px; }
+  .footer-promise p { max-width: 250px; }
+  .info-dialog { padding: 28px 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal.pending { opacity: 1; transform: none; }
+}
+
+.site-footer .footer-brand .brand { display: inline-flex; }
+
+/* Exact client-supplied Final Logo.svg, unchanged artwork and proportions. */
+.brand .brand-final { display: block; width: 230px; height: auto; max-width: 100%; object-fit: contain; }
+
+/* Fixed navigation: reserve its height and keep anchor targets visible. */
+:root { --header-height: 96px; }
+html { scroll-padding-top: calc(var(--header-height) + 24px); }
+body { padding-top: var(--header-height); }
+.site-header.wrap {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  width: 100%;
+  max-width: none;
+  height: var(--header-height);
+  margin: 0;
+  padding-inline: max(64px, calc((100% - 1312px) / 2));
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+}
+@media (max-width: 1200px) {
+  .site-header.wrap { padding-inline: 32px; }
+}
+@media (max-width: 980px) {
+  :root { --header-height: 90px; }
+  .site-header .main-nav { top: 100%; max-height: calc(100dvh - var(--header-height)); overflow-y: auto; }
+}
+@media (max-width: 600px) {
+  .site-header.wrap { padding-inline: 20px; }
+}
+
+/* Home begins behind the fixed navigation; other pages reserve header space. */
+body:has(.home-header) { padding-top: 0; }
+.site-header { transition: background-color 220ms ease, box-shadow 220ms ease, border-color 220ms ease; }
+.site-header.home-header:not(.is-scrolled):not(:has(.main-nav.open)) {
+  background: transparent;
+  border-bottom-color: transparent;
+}
+.site-header.is-scrolled { box-shadow: 0 3px 20px #08243d0c; }
+.site-header .header-quote { background: var(--blue); color: white; }
+@media (max-width: 600px) {
+  .brand .brand-final { width: 210px; }
+}
+
+/* Native navigation stays intact: short page fades, no artificial click delay. */
+@keyframes page-enter { from { opacity: 0; } to { opacity: 1; } }
+@keyframes page-leave { from { opacity: 1; } to { opacity: 0; } }
+@media (prefers-reduced-motion: no-preference) {
+  body > main, body > .hero { animation: page-enter 300ms ease-out both; }
+  @view-transition { navigation: auto; }
+  .site-header { view-transition-name: site-navigation; }
+  ::view-transition-old(root) { animation: page-leave 160ms ease-out both; }
+  ::view-transition-new(root) { animation: page-enter 220ms ease-out both; }
+  ::view-transition-group(site-navigation) { animation-duration: 220ms; }
+}
+
+
+/* ================================================================
+   CONTACT US — PAGE STYLES
+   ================================================================ */
+/* Contact page */
+.contact-intro { padding-top: 44px; }
+.contact-title-row { display: grid; grid-template-columns: 860fr 406fr; gap: 46px; margin-top: 30px; }
+.contact-title-row h1 { font-size: 46px; }
+.contact-title-row .intro-copy { margin-top: 29px; font-size: 15px; color: var(--muted); line-height: 1.65; }
+.contact-details { padding-top: 0; }
+.contact-details > div { border-top: 1px solid var(--line); padding: 12px 0 11px; }
+.contact-details .eyebrow { font-size: 10px; }
+.contact-details a, .contact-details span { display: flex; justify-content: space-between; font-size: 16px; margin-top: 4px; }
+.contact-details a span { margin: 0; }
+.contact-strip { margin-top: 32px; width: 100%; height: 220px; border-radius: 18px; object-fit: cover; }
+.enquiry-section { padding-block: 110px 64px; display: grid; grid-template-columns: 520fr 728fr; gap: 64px; align-items: start; }
+.enquiry-copy { padding-top: 12px; }
+.enquiry-copy h2 { font-size: 40px; line-height: 1.16; margin-top: 29px; letter-spacing: -1px; }
+.enquiry-copy > p:not(.eyebrow) { max-width: 458px; font-size: 16px; line-height: 1.65; color: var(--muted); margin-top: 31px; }
+.help-details { border-radius: 16px; background: var(--panel); padding: 25px 24px; margin-top: 61px; max-width: 470px; }
+.help-details .eyebrow { color: var(--navy); }
+.help-details ol { list-style: none; padding: 0; margin: 26px 0 0; counter-reset: tip; }
+.help-details li { counter-increment: tip; display: flex; gap: 24px; font-size: 14px; margin: 14px 0; }
+.help-details li::before { content: '0' counter(tip); font-size: 11px; color: var(--muted); }
+.direct-contact { margin-top: 53px; }
+.direct-contact a { display: block; font-size: 18px; margin-top: 16px; }
+.direct-contact a:last-child { font-size: 17px; }
+.enquiry-copy .company-note { font-size: 12px; margin-top: 60px; }
+.enquiry-form { background: white; border-radius: 18px; padding: 32px; }
+.form-field { margin-bottom: 19px; }
+.form-field label { display: block; font-size: 11px; font-weight: 500; margin-bottom: 8px; text-transform: uppercase; }
+.form-field input, .form-field select, .form-field textarea { width: 100%; min-height: 48px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 6px; background: white; color: var(--navy); font-size: 13px; }
+.form-field input::placeholder, .form-field textarea::placeholder { color: #7b858c; opacity: 1; }
+.form-field textarea { min-height: 96px; resize: vertical; }
+.form-field select:invalid { color: #7b858c; }
+.form-field input:user-invalid, .form-field select:user-invalid { border-color: #b13232; }
+.enquiry-form > .button { width: 100%; border-radius: 6px; }
+.form-note { margin-top: 17px; font-size: 11px; color: var(--muted); }
+.enquiry-review { white-space: pre-wrap; overflow-wrap: anywhere; background: white; border: 1px solid var(--line); padding: 18px; font: 13px/1.7 Manrope, sans-serif; margin-top: 20px; }
+.review-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.copy-status { font-size: 12px; margin-top: 15px; }
+@media(max-width:1000px) {
+ .contact-title-row { grid-template-columns: 1fr; gap: 35px; }
+ .contact-details { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+ .contact-details a, .contact-details span { font-size: 13px; }
+ .enquiry-section { grid-template-columns: .8fr 1.2fr; gap: 35px; padding-top: 70px; }
+ .help-details { padding: 22px; }
+ .enquiry-copy h2 { font-size: 34px; }
+ .enquiry-form { padding: 26px; }
+}
+@media(max-width:700px) {
+ .contact-title-row h1 { font-size: 35px; }
+ .contact-title-row .intro-copy br { display: none; }
+ .contact-details { grid-template-columns: 1fr; gap: 5px; }
+ .contact-details a, .contact-details span { font-size: 15px; }
+ .contact-strip { height: 180px; }
+ .enquiry-section { grid-template-columns: 1fr; gap: 36px; padding-block: 48px; }
+ .help-details { margin-top: 28px; }
+ .direct-contact { margin-top: 30px; }
+ .enquiry-copy .company-note { margin-top: 25px; }
+ .enquiry-form { padding: 24px; }
+}
+
+  </style>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="brand" href="index.html" aria-label="Monark International home"><img class="brand-final" src="assets/final-logo.svg" alt="Monark International" width="230" height="28.414"></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-navigation">Menu <span aria-hidden="true">☰</span></button>
+      <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog / Resources</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <a class="button blue header-quote" href="contact.html#enquiry">Request a Quote <span aria-hidden="true">→</span></a>
+    </header>
+    <main id="main">
+      <!-- Contact information -->
+      <section class="contact-intro wrap">
+        <p class="eyebrow">
+          Contact Monark
+        </p>
+        <div class="contact-title-row">
+          <div>
+            <h1 class="page-title">
+              Start a conversation.<br>Move your plans forward.
+            </h1>
+            <p class="intro-copy">
+              Tell us what your business needs. Our team can help with<br>container trading, rentals, sourcing and logistics coordination.
+            </p>
+          </div>
+          <div class="contact-details">
+            <div>
+              <p class="eyebrow">
+                Email
+              </p>
+              <a href="mailto:Contactus@Monark.ae">Contactus@Monark.ae <span aria-hidden="true">→</span></a>
+            </div>
+            <div>
+              <p class="eyebrow">
+                Call
+              </p>
+              <a href="tel:+971552052260">+971 55 205 2260 <span aria-hidden="true">→</span></a>
+            </div>
+            <div>
+              <p class="eyebrow">
+                Location
+              </p>
+              <span>United Arab Emirates</span>
+            </div>
+          </div>
+        </div>
+        <img class="contact-strip" src="assets/contact-handshake.webp" alt="Business handshake at a port during golden hour" width="1312" height="220" fetchpriority="high">
+      </section>
+      <!-- Enquiry form -->
+      <section class="enquiry-section wrap" id="enquiry">
+        <div class="enquiry-copy">
+          <p class="eyebrow">
+            Tell us what you need
+          </p>
+          <h2>
+            Let’s find the<br>right solution.
+          </h2>
+          <p>
+            Share a few details so we can understand your requirements and discuss the next steps.
+          </p>
+          <div class="help-details">
+            <p class="eyebrow">
+              Helpful details to include
+            </p>
+            <ol>
+              <li>
+                Container type, size and quantity
+              </li>
+              <li>
+                Intended use and preferred timeframe
+              </li>
+              <li>
+                Collection or delivery location
+              </li>
+            </ol>
+          </div>
+          <div class="direct-contact">
+            <p class="eyebrow">
+              Prefer a direct conversation?
+            </p>
+            <a href="tel:+971552052260">+971 55 205 2260 →</a><a href="mailto:Contactus@Monark.ae">Contactus@Monark.ae →</a>
+          </div>
+          <p class="company-note">
+            Monark International LLC FZ
+          </p>
+        </div>
+        <form class="enquiry-form" id="enquiry-form">
+          <div class="form-field">
+            <label for="name">Name *</label><input id="name" name="name" placeholder="Your name" autocomplete="name" maxlength="100" required>
+          </div>
+          <div class="form-field">
+            <label for="company">Company (optional)</label><input id="company" name="company" placeholder="Your company" autocomplete="organization" maxlength="150">
+          </div>
+          <div class="form-field">
+            <label for="reach">Phone or email *</label><input id="reach" name="reach" placeholder="How should we reach you?" maxlength="150" required>
+          </div>
+          <div class="form-field">
+            <label for="requirement">Requirement *</label>
+            <select id="requirement" name="requirement" required>
+              <option value="" disabled selected>
+                Select Buy / Rent / Transportation / Other
+              </option>
+              <option>
+                Buy / Container supply
+              </option>
+              <option>
+                Rent / Leasing
+              </option>
+              <option>
+                Transportation / Logistics
+              </option>
+              <option>
+                Global sourcing
+              </option>
+              <option>
+                Not sure — please advise
+              </option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="category">Container category (optional)</label>
+            <select id="category" name="category">
+              <option value="">
+                Select container type and size
+              </option>
+              <option>
+                Standard Dry
+              </option>
+              <option>
+                High Cube
+              </option>
+              <option>
+                Reefer
+              </option>
+              <option>
+                Open Top
+              </option>
+              <option>
+                Flat Rack
+              </option>
+              <option>
+                20 FT Standard Dry
+              </option>
+              <option>
+                40 FT Standard Dry
+              </option>
+              <option>
+                20 FT High Cube
+              </option>
+              <option>
+                40 FT High Cube
+              </option>
+              <option>
+                20 FT Reefer
+              </option>
+              <option>
+                40 FT Reefer
+              </option>
+              <option>
+                20 FT Open Top
+              </option>
+              <option>
+                40 FT Open Top
+              </option>
+              <option>
+                20 FT Flat Rack
+              </option>
+              <option>
+                40 FT Flat Rack
+              </option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="message">Additional requirements (optional)</label><textarea id="message" name="message" placeholder="Tell us about quantities, timing or any specific needs." maxlength="2000"></textarea>
+          </div>
+          <div class="form-field">
+            <label for="location">Emirate or location *</label><input id="location" name="location" placeholder="e.g. Dubai, Abu Dhabi" autocomplete="address-level2" maxlength="150" required>
+          </div>
+          <button class="button" type="submit">Request a Quote <span aria-hidden="true">→</span></button>
+          <p class="form-note">
+            Fields marked * are required. Review your enquiry, then send it using your email app.
+          </p>
+          <noscript>
+            <style>#enquiry-form { display: none; }</style>
+            <p class="form-note">
+              To enquire, email <a href="mailto:Contactus@Monark.ae">Contactus@Monark.ae</a> or call <a href="tel:+971552052260">+971 55 205 2260</a>.
+            </p>
+          </noscript>
+        </form>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Monark International home"><img class="brand-final" src="assets/final-logo.svg" alt="Monark International" width="230" height="28.414"></a>
+          <p>
+            Container trading | Leasing | Storage | Transportation.
+          </p>
+        </div>
+        <div>
+          <h2>
+            Quick Links
+          </h2>
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="blog.html">Blog / Resources</a>
+            <a href="contact.html">Contact</a>
+            <a href="faq.html">FAQ</a>
+          </nav>
+        </div>
+        <div>
+          <h2>
+            Our Location
+          </h2>
+          <address>
+            Dubai, United Arab Emirates<br><a href="mailto:Contactus@Monark.ae">Contactus@Monark.ae</a><br><a href="tel:+971552052260">+971 55 205 2260</a>
+          </address>
+        </div>
+        <div class="footer-promise">
+          <h2>
+            Let’s build Together
+          </h2>
+          <p>
+            Reliable container solutions for a stronger tomorrow
+          </p>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <small>© Monark International LLC FZ</small>
+        <div>
+          <button data-policy="privacy">Privacy Policy</button> <span aria-hidden="true">|</span> <button data-policy="terms">Terms of Service</button>
+        </div>
+        <span>UAE | GCC | GLOBAL</span>
+      </div>
+    </footer>
+    <dialog class="info-dialog" id="policy-dialog" aria-labelledby="policy-title">
+      <button class="dialog-close" aria-label="Close dialog">×</button>
+      <h2 id="policy-title">
+      </h2>
+      <p id="policy-copy">
+      </p>
+    </dialog>
+    <dialog class="info-dialog" id="enquiry-dialog" aria-labelledby="enquiry-title">
+      <button class="dialog-close" aria-label="Close enquiry review">×</button>
+      <h2 id="enquiry-title">
+        Your enquiry is ready.
+      </h2>
+      <p>
+        Review your details below. Open your email app to send this enquiry to Monark, or copy it into an email. Nothing has been sent yet.
+      </p>
+      <pre class="enquiry-review" id="enquiry-review"></pre>
+      <div class="review-actions">
+        <a class="button" id="email-enquiry" href="mailto:Contactus@Monark.ae">Open email draft →</a><button class="button light" id="copy-enquiry" type="button">Copy enquiry</button>
+      </div>
+      <p class="copy-status" id="copy-status" role="status">
+      </p>
+    </dialog>
+    <script>
+// Shared navigation and progressive enhancement.
+(() => {
+  const header = document.querySelector('.site-header');
+  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 12);
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  window.addEventListener('pageshow', updateHeader);
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.main-nav');
+  const closeMenu = () => {
+    toggle?.setAttribute('aria-expanded', 'false');
+    menu?.classList.remove('open');
+  };
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', String(open));
+    menu.classList.toggle('open', open);
+  });
+  menu?.addEventListener('click', event => {
+    if (event.target.closest('a')) closeMenu();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu?.classList.contains('open')) {
+      closeMenu();
+      toggle.focus();
+    }
+  });
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.site-header')) closeMenu();
+  });
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('pending');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.07 });
+    document.querySelectorAll('.reveal').forEach(element => {
+      if (element.getBoundingClientRect().top > innerHeight) {
+        element.classList.add('pending');
+        observer.observe(element);
+      }
+    });
+  }
+  const dialog = document.querySelector('#policy-dialog');
+  let opener;
+  document.querySelectorAll('[data-policy]').forEach(button => {
+    button.addEventListener('click', () => {
+      opener = button;
+      document.querySelector('#policy-title').textContent = button.textContent;
+      document.querySelector('#policy-copy').textContent = button.dataset.policy === 'privacy'
+        ? 'The final company privacy policy is awaiting confirmation. This preview has no analytics or enquiry database. Contact details entered in the enquiry form remain in this page until you choose to open an email draft or copy the enquiry.'
+        : 'The final company terms are awaiting confirmation. Contact Monark to agree availability, pricing, rental conditions and transportation arrangements for your requirement.';
+      dialog.showModal();
+    });
+  });
+  dialog?.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+  dialog?.addEventListener('close', () => opener?.focus());
+})();
+
+
+// Contact Us page behaviour.
+// Contact form: validate locally, then let the visitor send their own email.
+(() => {
+  const form = document.querySelector('#enquiry-form');
+  const reach = form.elements.reach;
+  const review = document.querySelector('#enquiry-dialog');
+  const params = new URLSearchParams(location.search);
+  const fillOption = (name, value) => {
+    const control = form.elements[name];
+    if ([...control.options].some(option => option.value === value)) control.value = value;
+  };
+  fillOption('requirement', params.get('service'));
+  fillOption('category', params.get('product'));
+  reach.addEventListener('input', () => reach.setCustomValidity(''));
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const value = reach.value.trim();
+    const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    const validPhone = /^[+()\d\s.-]+$/.test(value) && value.replace(/\D/g, '').length >= 7;
+    reach.setCustomValidity(validEmail || validPhone ? '' : 'Enter a valid email address or telephone number.');
+    if (!form.reportValidity()) return;
+    const data = new FormData(form);
+    const message = [
+      'Hello Monark,', '', 'I would like to discuss the following requirement:', '',
+      `Name: ${data.get('name').trim()}`,
+      `Company: ${data.get('company').trim() || 'Not supplied'}`,
+      `Phone or email: ${value}`,
+      `Requirement: ${data.get('requirement')}`,
+      `Container category: ${data.get('category') || 'Please advise'}`,
+      `Location: ${data.get('location').trim()}`, '',
+      `Additional details: ${data.get('message').trim() || 'None provided'}`
+    ].join('\n');
+    document.querySelector('#enquiry-review').textContent = message;
+    document.querySelector('#email-enquiry').href = `mailto:Contactus@Monark.ae?subject=${encodeURIComponent('Website enquiry — ' + data.get('requirement'))}&body=${encodeURIComponent(message)}`;
+    document.querySelector('#copy-status').textContent = '';
+    review.showModal();
+  });
+  review.querySelector('.dialog-close').addEventListener('click', () => review.close());
+  review.addEventListener('close', () => form.querySelector('button[type=submit]').focus());
+  document.querySelector('#copy-enquiry').addEventListener('click', async () => {
+    const status = document.querySelector('#copy-status');
+    try {
+      await navigator.clipboard.writeText(document.querySelector('#enquiry-review').textContent);
+      status.textContent = 'Enquiry copied. Paste it into your email to Monark.';
+    } catch {
+      status.textContent = 'Select and copy the enquiry above, then send it to Contactus@Monark.ae.';
+    }
+  });
+})();
+
+</script>
+  </body>
+</html>
