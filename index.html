@@ -258,7 +258,7 @@ h1 {
 .hero-cta {
   position:absolute;
   left:max(calc((100% - 1276px)/2),5%);
-  bottom:120px
+  bottom:91px
 }
 
 .capabilities {
@@ -1317,7 +1317,7 @@ dialog .button {
 
 @media(max-width:600px) {
   .hero:before {
-    background:linear-gradient(90deg,rgba(247,245,235,.9),rgba(247,245,235,.45) 5%,transparent)
+    background:linear-gradient(90deg,rgba(247,245,235,.94),rgba(247,245,235,.75) 65%,rgba(247,245,235,.18))
   }
 }
 
@@ -1494,6 +1494,42 @@ body:has(.home-header) { padding-top: 0; }
 .site-footer .brand span { margin: 0; }
 .site-footer .footer-grid h2 { margin-bottom: 18px; }
 .site-footer .footer-nav { gap: 4px; }
+
+/* Global trade: five reference highlights on the existing golden-hour image. */
+.trade.trade-perspective { height: auto; min-height: 600px; }
+.trade-perspective .trade-shade { background: linear-gradient(110deg, #08243df5, #08243dde 55%, #08243dbb); }
+.trade-perspective .trade-content { padding-block: 64px 32px; min-height: 700px; display: flex; flex-direction: column; justify-content: space-between; gap: 80px; }
+.trade-intro { display: grid; grid-template-columns: 1.7fr 1fr; gap: 64px; align-items: center; }
+.trade-intro h2 { font-size: clamp(48px, 4.5vw, 64px); line-height: 1.08; letter-spacing: -1.5px; }
+.trade-intro .trade-description { margin: 0; max-width: 420px; padding-left: 28px; border-left: 1px solid #ffffff38; font-size: 17px; line-height: 1.65; }
+.trade-highlights { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 0; }
+.trade-highlight { padding: 0 24px; border-left: 1px solid #ffffff26; }
+.trade-highlight:first-child { border-left: 0; padding-left: 0; }
+.trade-highlight:last-child { padding-right: 0; }
+.trade-icon { width: 66px; height: 66px; padding: 13px; display: grid; place-items: center; border: 1px solid #ffffff26; border-radius: 50%; background: #ffffff08; margin-bottom: 22px; }
+.trade-icon svg { width: 40px; height: 40px; }
+.trade-highlight strong { display: block; font-size: clamp(34px, 3vw, 44px); font-weight: 600; line-height: 1.2; letter-spacing: -1px; min-height: 53px; }
+.trade-highlight .trade-modes { font-size: clamp(18px, 1.65vw, 24px); letter-spacing: -.5px; display: flex; align-items: center; white-space: nowrap; }
+.trade-highlight h3 { font-size: 12px; line-height: 1.6; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; min-height: 40px; margin-top: 8px; color: white; }
+.trade-highlight h3::after { content: ''; display: block; width: 30px; height: 2px; background: #9db7ff; margin: 18px 0; }
+.trade-highlight p { font-size: 13px; line-height: 1.7; color: #d4deea; margin: 0; }
+@media (max-width: 1050px) {
+  .trade-perspective .trade-content { min-height: auto; gap: 56px; }
+  .trade-highlights { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 0; }
+  .trade-highlight:nth-child(4) { border-left: 0; padding-left: 0; }
+  .trade-intro { gap: 32px; }
+}
+@media (max-width: 650px) {
+  .trade-perspective .trade-content { padding-block: 44px 28px; gap: 44px; }
+  .trade-intro { grid-template-columns: 1fr; gap: 24px; }
+  .trade-intro h2 { font-size: clamp(36px, 8vw, 46px); letter-spacing: -1px; }
+  .trade-intro .trade-description { padding-left: 0; border: 0; font-size: 15px; }
+  .trade-highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 0; }
+  .trade-highlight { padding: 0 16px; }
+  .trade-highlight:nth-child(odd) { border-left: 0; padding-left: 0; }
+  .trade-highlight:nth-child(even) { border-left: 1px solid #ffffff26; padding-left: 16px; padding-right: 0; }
+  .trade-highlight .trade-modes { white-space: normal; font-size: 18px; }
+}
 
   </style>
   </head>
@@ -1717,35 +1753,85 @@ body:has(.home-header) { padding-top: 0; }
           </article>
         </div>
       </section>
-      <section class="trade">
-        <img class="banner-photo" src="assets/trade.webp" alt="Container port at dusk" loading="lazy">
+      <section class="trade trade-perspective" aria-labelledby="trade-heading">
+        <img class="banner-photo" src="assets/trade.webp" alt="Container port at golden hour" loading="lazy">
         <div class="trade-shade">
         </div>
         <div class="wrap trade-content">
-          <div class="reveal">
-            <p class="eyebrow">
-              Global trade. Moving possibilities.
-            </p>
-            <h2>
-              The world moves<br>in containers.
-            </h2>
+          <div class="trade-intro reveal">
+            <div>
+              <p class="eyebrow">
+                Global trade in perspective
+              </p>
+              <h2 id="trade-heading">
+                The world moves<br>in containers.
+              </h2>
+            </div>
             <p class="trade-description">
-              From raw materials to finished products, containers connect manufacturers, businesses and consumers across borders.
+              Containers connect economies, businesses and people — creating opportunities across every continent.
             </p>
           </div>
-          <div class="trade-stats">
-            <div>
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="24" cy="24" r="20"/><ellipse cx="24" cy="24" rx="9" ry="20"/><path d="M4 24h40M8 12h32M8 36h32"/></svg>
+          <div class="trade-highlights">
+            <article class="trade-highlight reveal">
+              <div class="trade-icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="24" cy="24" r="18"/><ellipse cx="24" cy="24" rx="8" ry="18"/><path d="M6 24h36M10 13h28M10 35h28"/></svg>
+              </div>
+              <strong>150+</strong>
+              <h3>
+                Ports worldwide
+              </h3>
               <p>
-                <strong>90% +</strong><span>Of global trade<br>by volume moves in containers.</span>
+                Access to 150+ ports across the globe, connecting your business to new markets.
               </p>
-            </div>
-            <div>
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M3 11h32v25H3zM35 23h7l4 7v6H35M9 16v14m6-14v14m6-14v14m6-14v14"/><circle cx="11" cy="38" r="4"/><circle cx="38" cy="38" r="4"/></svg>
+            </article>
+            <article class="trade-highlight reveal">
+              <div class="trade-icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M5 29h38l-6 12H12L5 29Zm8 0V17h12v12M17 17V9h4v8M19 9V4M25 22h14v7M3 43q5-4 10 0t10 0t10 0t12 0"/><path d="M28 15h6v7m2-7h6v7M28 9h6v6" stroke="#a9bdff"/></svg>
+              </div>
+              <strong>90%+</strong>
+              <h3>
+                Of global trade
+              </h3>
               <p>
-                <strong>500+</strong><span>Containers shipped<br>across the world.</span>
+                By volume moves in containers.
               </p>
-            </div>
+            </article>
+            <article class="trade-highlight reveal">
+              <div class="trade-icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M5 24h38v20H5zM11 25v18m6-18v18m7-18v18m7-18v18m6-18v18"/><path d="M24 3v7q7 0 0 8L7 22m17-4 17 4M20 3v3q4 5 8 0V3" stroke="#a9bdff"/></svg>
+              </div>
+              <strong>2/3</strong>
+              <h3>
+                Of seaborne trade<br>by value
+              </h3>
+              <p>
+                Roughly two-thirds of seaborne trade by value is containerized.
+              </p>
+            </article>
+            <article class="trade-highlight reveal">
+              <div class="trade-icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="m16 10 17-6 3 2-8 7-5-1-5 3-2-2 3-3-3-3 3-1 4 2M3 31h17l-4 9H7l-4-9Zm5 0v-7h7v7M27 28h12v11H27zM39 32h5l2 4v3h-7"/><circle cx="31" cy="41" r="2"/><circle cx="42" cy="41" r="2"/><path d="M6 20q1-5 5-8M37 14q5 3 6 9M18 44q3 2 7 0" stroke="#a9bdff"/></svg>
+              </div>
+              <strong class="trade-modes">Sea · Air · Land</strong>
+              <h3>
+                A connected<br>trade network
+              </h3>
+              <p>
+                Seamless logistics across sea, air and land for a stronger, faster tomorrow.
+              </p>
+            </article>
+            <article class="trade-highlight reveal">
+              <div class="trade-icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M40 28a18 18 0 1 1-20-20M4 26h35M9 15h16M9 37h27M22 8c-11 10-11 26 0 36 7-7 10-17 7-24"/><path d="M43 12c0 6-8 14-8 14s-8-8-8-14a8 8 0 0 1 16 0Z" stroke="#a9bdff"/><circle cx="35" cy="12" r="2.5" stroke="#a9bdff"/></svg>
+              </div>
+              <strong>80+</strong>
+              <h3>
+                Weekly shipping<br>services
+              </h3>
+              <p>
+                The UAE is served by 80+ weekly shipping services, linking global markets.
+              </p>
+            </article>
           </div>
         </div>
       </section>
