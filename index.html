@@ -1488,8 +1488,17 @@ body:has(.home-header) { padding-top: 0; }
   background: transparent;
   border-bottom-color: transparent;
 }
+.site-header.home-header:not(.is-scrolled) .header-quote {
+  background: var(--cream);
+  color: var(--navy);
+  border: 1px solid rgba(8,36,61,0.12);
+}
 .site-header.is-scrolled { box-shadow: 0 3px 20px #08243d0c; }
-.site-header .header-quote { background: var(--navy); color: white; }
+.site-header.is-scrolled .header-quote {
+  background: var(--navy);
+  color: white;
+  border-color: rgba(255,255,255,0.2);
+}
 @media (max-width: 600px) {
   .brand .brand-final { width: 210px; }
 }
