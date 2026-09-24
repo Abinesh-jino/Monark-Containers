@@ -167,7 +167,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible {
   content:'';
   position:absolute;
   inset:0;
-  background:linear-gradient(90deg,rgba(247,245,235,.5),transparent 51%);
+  background:linear-gradient(90deg,rgba(247,245,235,0.10),rgba(247,245,235,0.03) 22%,transparent 60%);
   z-index:-1
 }
 
@@ -239,6 +239,17 @@ a:focus-visible,button:focus-visible,summary:focus-visible {
   position:absolute;
   top:175px;
   left:max(calc((100% - 1298px)/2),5%)
+}
+
+.hero-copy h1::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 8px;
+      background: var(--navy);
+      margin: 10px 0;
+      border-radius: 10px;
+
 }
 
 h1 {
@@ -644,7 +655,7 @@ h1 {
   position:absolute;
   inset:0;
   z-index:-1;
-  background:linear-gradient(90deg,#08243d,rgba(8,36,61,.64) 40%,transparent 85%)
+  background:linear-gradient(90deg,#08243d,rgba(8,36,61,.64) 40%,transparent 65%)
 }
 
 .contact-copy {
@@ -821,6 +832,7 @@ dialog .button {
   .hero-copy {
     left:calc((100% - 1298px)/2)
   }
+  
   .hero-photo {
     object-position:center 58%
   }
@@ -1006,7 +1018,8 @@ dialog .button {
     object-position:63% center
   }
   .hero:before {
-    background:linear-gradient(90deg,rgba(247,245,235,.9),rgba(247,245,235,.45) 65%,transparent)
+    opacity:.69;
+    background:linear-gradient(90deg,rgba(247,245,235,0.0005),rgba(247,245,235,0.005) 24%,transparent 12%)
   }
   .hero-copy {
     top:158px;
@@ -1017,6 +1030,13 @@ dialog .button {
     font-size:9px;
     letter-spacing:1.3px
   }
+  .hero-copy h1::after {
+      width:60px;
+      height: 6px;
+      background: var(--navy);
+      margin: 8px 0;
+      border-radius: 10px;
+    }
   h1 {
     font-size:clamp(33px,8.9vw,48px);
     letter-spacing:-1.5px;
@@ -1765,7 +1785,7 @@ body:has(.home-header) { padding-top: 0; }
                 Global trade in perspective
               </p>
               <h2 id="trade-heading" style="letter-spacing:4px; text-transform:none;">
-                Global Trade, <br>  connected through Containers.
+                Global Trade, <br>  Connected through Containers.
               </h2>
             </div>
             <p class="trade-description">
