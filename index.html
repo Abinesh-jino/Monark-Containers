@@ -1489,15 +1489,21 @@ body:has(.home-header) { padding-top: 0; }
   border-bottom-color: transparent;
 }
 .site-header.home-header:not(.is-scrolled) .header-quote {
-  background: var(--cream);
-  color: var(--navy);
-  border: 1px solid rgba(8,36,61,0.12);
+  background: transparent;
+  color: white;
+  border: none;
+  min-width: 0;
+  padding: 0;
+  box-shadow: none;
 }
 .site-header.is-scrolled { box-shadow: 0 3px 20px #08243d0c; }
 .site-header.is-scrolled .header-quote {
   background: var(--navy);
   color: white;
-  border-color: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.2);
+  min-width: 184px;
+  padding: 13px 22px;
+  box-shadow: none;
 }
 @media (max-width: 600px) {
   .brand .brand-final { width: 210px; }
