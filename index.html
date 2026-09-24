@@ -237,7 +237,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible {
 
 .hero-copy {
   position:absolute;
-  top:196px;
+  top:175px;
   left:max(calc((100% - 1298px)/2),5%)
 }
 
@@ -258,7 +258,7 @@ h1 {
 .hero-cta {
   position:absolute;
   left:max(calc((100% - 1276px)/2),5%);
-  bottom:91px
+  bottom: 110px;
 }
 
 .capabilities {
@@ -1350,7 +1350,7 @@ button, a, input, select, textarea, summary { -webkit-tap-highlight-color: trans
 .button.light { background: white; color: var(--navy); }
 .button.light:hover { background: #e9eef1; }
 .button.round { border-radius: 24px; }
-.button.blue { background: var(--blue); }
+.button.blue { background: var(--navy); }
 .button span, .text-link span { display: inline-block; transition: transform .2s; }
 .button:hover span, .text-link:hover span { transform: translateX(4px); }
 .text-link { font-size: 13px; font-weight: 600; }
@@ -1365,7 +1365,7 @@ button, a, input, select, textarea, summary { -webkit-tap-highlight-color: trans
 .brand-type small { display: block; text-align: center; font-size: 8px; line-height: 12px; letter-spacing: 3.5px; margin-top: 4px; }
 .main-nav { display: flex; align-items: center; gap: 34px; }
 .main-nav a { position: relative; white-space: nowrap; font-size: 12px; font-weight: 500; padding-block: 6px; }
-.main-nav a[aria-current=page]::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--blue); }
+.main-nav a[aria-current=page]::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--navy); }
 .header-quote { min-width: 184px; }
 .menu-toggle { display: none; border: 0; padding: 12px 16px; background: white; }
 /* Shared footer */
@@ -1469,7 +1469,7 @@ body:has(.home-header) { padding-top: 0; }
   border-bottom-color: transparent;
 }
 .site-header.is-scrolled { box-shadow: 0 3px 20px #08243d0c; }
-.site-header .header-quote { background: var(--blue); color: white; }
+.site-header .header-quote { background: var(--navy); color: white; }
 @media (max-width: 600px) {
   .brand .brand-final { width: 210px; }
 }
@@ -1550,15 +1550,16 @@ body:has(.home-header) { padding-top: 0; }
     </header>
     <section class="hero" id="home">
       <img class="hero-photo" src="assets/hero.webp" alt="Monark shipping containers at a UAE port in golden evening light" fetchpriority="high">
-      <div class="hero-copy">
+        <div class="hero-copy">
         <p class="eyebrow">
           Container solutions for a moving world
         </p>
         <h1>
-          Containers without<br>Compromise.
+          The World Moves  <br> in Containers.
+          <br> We keep them Moving.
         </h1>
         <p class="hero-description">
-          Trading. Leasing. Storage. Transportation<br>From the UAE to the world.
+          From the UAE to the World.
         </p>
       </div>
       <a class="button hero-cta" href="services.html">Explore our services <span>→</span></a>
@@ -1763,8 +1764,8 @@ body:has(.home-header) { padding-top: 0; }
               <p class="eyebrow">
                 Global trade in perspective
               </p>
-              <h2 id="trade-heading">
-                The world moves<br>in containers.
+              <h2 id="trade-heading" style="letter-spacing:4px; text-transform:none;">
+                Global Trade, <br>  connected through Containers.
               </h2>
             </div>
             <p class="trade-description">
